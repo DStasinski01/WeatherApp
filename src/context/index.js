@@ -18,7 +18,7 @@ export const StateContext = ({ children }) => {
     if (name.trim()) {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/weather?q=${name.trim()}&units=metric&appid=5e2d7dd0e286e305479a4fc59d919753`
+          `https://api.openweathermap.org/data/2.5/weather?q=${name.trim()}&units=metric&appid=5e2d7dd0e286e305479a4fc59d919753`
         )
         .then((res) => {
           setLocationData(res.data);
@@ -38,7 +38,7 @@ export const StateContext = ({ children }) => {
     setLoading(true);
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=5e2d7dd0e286e305479a4fc59d919753`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=5e2d7dd0e286e305479a4fc59d919753`
       )
       .then((res) => {
         setLocationData(res.data);
