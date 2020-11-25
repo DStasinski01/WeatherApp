@@ -1,0 +1,48 @@
+.footer {
+  background-color: azure;
+  padding: 5rem 1rem;
+  @include deskopSize {
+    margin-top: 5rem;
+
+    padding: 5rem 5rem;
+  }
+  &__center {
+    @include maxWidth;
+    @include borderPadding;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    padding: 0.5rem;
+    font-size: 1.125rem;
+
+    & a {
+      @include linkStyle;
+    }
+  }
+  &__social-links {
+    margin-right: 2rem;
+    height: 100%;
+    @include mediumSize {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  &__social-link {
+    list-style: none;
+    & a {
+      padding: 0.5rem;
+      @include linkStyle;
+
+      & svg {
+        font-size: 2rem;
+      }
+
+      &:hover,
+      &:focus {
+        color: #777;
+      }
+    }
+  }
+}

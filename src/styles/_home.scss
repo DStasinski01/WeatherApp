@@ -1,0 +1,11 @@
+.home {
+  margin-top: 100px;
+  min-height: 65vh;
+  @include deskopSize {
+    margin-top: 200px;
+  }
+  &__center {
+    @include maxWidth;
+    @include borderPadding;
+  }
+}
