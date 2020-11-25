@@ -28,7 +28,7 @@ const ForecastItem = ({ data, type }) => {
 
       <span>
         {Math.round(temperature * 10) / 10}°
-        <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt="cloud" />
+        <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt="cloud" />
       </span>
     </li>
   );
