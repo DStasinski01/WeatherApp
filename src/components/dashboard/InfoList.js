@@ -5,6 +5,7 @@ import { FaLongArrowAltUp } from "react-icons/fa";
 const InfoList = ({ locationData }) => {
   const { main, wind, sys, clouds, timezone } = locationData;
 
+
   const { all: cloudy } = clouds;
   const { temp } = main;
   const { sunrise, sunset } = sys;

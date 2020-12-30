@@ -4,6 +4,7 @@ import LocationInfo from "../components/dashboard/LocationInfo";
 import SearchForm from "../components/Search/SearchForm";
 import Forecast from "../components/dashboard/Forecast";
 import InfoList from "../components/dashboard/InfoList";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Dashboard = () => {
   const { locationData } = useWeatherState();
@@ -17,11 +18,21 @@ const Dashboard = () => {
 
   const { icon } = weather[0];
 
+  const goBackHandler = () => {
+    history.push("/");
+  };
+
   return (
     <section className="dashboard">
       <div className="dashboard__center">
         <header className="dashboard__header">
-          <SearchForm />
+          <FaArrowLeft
+            onClick={goBackHandler}
+            className="dashboard__header-icon"
+          />
+          <div className="dashboard__header-searchWrapper">
+            <SearchForm />
+          </div>
         </header>
 
         <div className="dashboard__body">
