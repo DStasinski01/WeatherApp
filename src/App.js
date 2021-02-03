@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Footer from "./components/Footer";
+import { useEffect, lazy,Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
+import Navbar from "./components/shared/Navbar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer/Footer";
 import Loading from "./UI/Loader";
-import About from "./pages/About";
-import DataInfo from "./pages/DataInfo";
 import { useWeatherState } from "./context";
 import { useLocation } from "react-router-dom";
+const Dashboard = lazy(()=>import("./pages/Dashboard"));
+const DataInfo = lazy(()=>import("./pages/DataInfo"));
+const About = lazy(()=>import("./pages/About"));
 
 function App() {
   const { pathname } = useLocation();
@@ -23,20 +23,14 @@ function App() {
   return (
     <>
       <Navbar />
+        <Suspense fallback={<Loading/>}>
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/data">
-          <DataInfo />
-        </Route>
-        <Route path="/:location">
-          <Dashboard />
-        </Route>
+        <Route path="/" exact component={Home}/>
+        <Route path="/about" render={(props)=><About {...props}/>}/>
+        <Route path="/data" render={(props=><DataInfo {...props}/>)}/>
+        <Route path="/:location" render={(props)=><Dashboard {...props}/>}/>
       </Switch>
+        </Suspense>
       <Footer />
     </>
   );

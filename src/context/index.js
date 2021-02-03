@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useHints } from "../hooks";
+import axios from "axios";
 
 const StateProvider = React.createContext();
 
@@ -11,7 +11,7 @@ export const StateContext = ({ children }) => {
   const [timezone, setTimezone] = useState(0);
   const [loading, setLoading] = useState(false);
   const [filteredCities, setFilteredCities] = useHints(searchValue);
-  let history = useHistory();
+  const history = useHistory();
 
   const getLocationByName = (name) => {
     setLoading(true);
@@ -74,6 +74,5 @@ export const StateContext = ({ children }) => {
   );
 };
 
-export const useWeatherState = () => {
-  return useContext(StateProvider);
-};
+export const useWeatherState = () => useContext(StateProvider);
+

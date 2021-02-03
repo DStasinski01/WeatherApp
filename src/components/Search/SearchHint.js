@@ -1,24 +1,23 @@
 import { useWeatherState } from "../../context";
 
-const SearchHint = ({ location }) => {
+const SearchHint = ({ name,latitude,longitude }) => {
   const { setSearchValue, getLocationByCords } = useWeatherState();
-  const { name } = location;
 
-  const filterSumbit = () => {
+  const selectedCityHandler = () => {
     setSearchValue(name);
-    getLocationByCords(location.latitude, location.longitude);
+    getLocationByCords(latitude, longitude);
   };
 
   const enterHandler = (event) => {
     if (event.keyCode === 13) {
-      filterSumbit();
+      selectedCityHandler();
     }
   };
 
   return (
     <li
       tabIndex={0}
-      onClick={() => filterSumbit()}
+      onClick={() => selectedCityHandler()}
       onKeyDown={(e) => enterHandler(e)}
       className="search__center-item"
     >

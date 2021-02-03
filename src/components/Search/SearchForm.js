@@ -8,7 +8,6 @@ const SearchForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log();
     getLocationByName(input.current.value);
   };
 

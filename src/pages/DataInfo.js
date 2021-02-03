@@ -1,33 +1,38 @@
-import React from "react";
-import PageBody from "../components/PageBody";
-import PageHeader from "../components/PageHeader";
+import PageBody from "../components/shared/PageBody";
+import PageHeader from "../components/shared/PageHeader";
 
-const Data = () => {
+const DataInfo = () => {
   return (
     <section className="section">
       <div className="section__center">
-        <PageHeader title={"Data"} />
-        <PageBody text={"Data from this app is provided by:"}>
-          <ul>
-            <li>
-              <a href="https://openweathermap.org/" alt="link" target="blank">
-                OpenWeather
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://geodb-cities-api.wirefreethought.com/"
-                alt="link"
-                target="blank"
-              >
-                GeoDB cities
-              </a>
-            </li>
-          </ul>
+        <PageHeader title="Data" />
+        <PageBody text="Data from this app is provided by:">
+          <DataInfoList />
         </PageBody>
       </div>
     </section>
   );
 };
 
-export default Data;
+const DataInfoList = () => {
+  return (
+    <ul>
+      <li>
+        <a href="https://openweathermap.org/" alt="link" target="blank">
+          OpenWeather
+        </a>
+      </li>
+      <li>
+        <a
+          href="http://geodb-cities-api.wirefreethought.com/"
+          alt="link"
+          target="blank"
+        >
+          GeoDB cities
+        </a>
+      </li>
+    </ul>
+  );
+};
+
+export default DataInfo;

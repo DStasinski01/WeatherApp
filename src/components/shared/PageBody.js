@@ -1,6 +1,4 @@
-import React from "react";
-
-const PageBody = ({ text, children }) => {
+const PageBody = ({ text="", children }) => {
   return (
     <div className="section__body">
       <p>{text}</p>

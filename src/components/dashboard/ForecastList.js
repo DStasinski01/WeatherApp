@@ -1,4 +1,3 @@
-import React from "react";
 import ForecastItem from "./ForecastItem";
 
 const ForecastList = ({ forecastlist, type }) => {

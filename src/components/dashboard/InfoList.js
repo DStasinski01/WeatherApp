@@ -1,20 +1,15 @@
 import React from "react";
 import WeatherInfo from "./WeatherInfo";
 import { FaLongArrowAltUp } from "react-icons/fa";
+import { mapSunTime } from "../../utilities/dateFormatting";
 
 const InfoList = ({ locationData }) => {
   const { main, wind, sys, clouds, timezone } = locationData;
-
 
   const { all: cloudy } = clouds;
   const { temp } = main;
   const { sunrise, sunset } = sys;
   const { speed, deg } = wind;
-
-  const mapSunTime = (value) => {
-    const date = new Date(value * 1000 + timezone * 1000);
-    return `${date.getUTCHours()}:${date.getUTCMinutes()}`;
-  };
 
   const infos = Array.of(
     { title: "temperature:", value: Math.round(temp * 10) / 10 + "°" },
@@ -25,8 +20,8 @@ const InfoList = ({ locationData }) => {
       icon: <FaLongArrowAltUp />,
       rotation: deg,
     },
-    { title: "sunrise:", value: mapSunTime(sunrise) },
-    { title: "sunset:", value: mapSunTime(sunset) }
+    { title: "sunrise:", value: mapSunTime(sunrise, timezone) },
+    { title: "sunset:", value: mapSunTime(sunset, timezone) }
   );
 
   return (

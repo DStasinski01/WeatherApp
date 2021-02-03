@@ -1,6 +1,6 @@
 import React from "react";
-import PageBody from "../components/PageBody";
-import PageHeader from "../components/PageHeader";
+import PageBody from "../components/shared/PageBody";
+import PageHeader from "../components/shared/PageHeader";
 
 function About() {
   return (
@@ -8,7 +8,7 @@ function About() {
       <div className="section__center">
         <PageHeader title={"About"} />
         <PageBody
-          text={"Page made by Dawid Stasiński for learning purposes."}
+          text="Page made by Dawid Stasiński for learning purposes."
         />
       </div>
     </section>
